@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/success.css">
+    <title>transfer successful</title>
+</head>
+<body>
+
+    <div class="success">
+        transfer successful!
+        &dollar; {{amount}} was transfered to {{reciver}}. <br> <a href="{% url 'dash' %}">go to dashboard</a>
+    </div>
+    
+</body>
+</html>

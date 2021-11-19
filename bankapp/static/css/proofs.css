@@ -1,0 +1,23 @@
+body{
+    background: #f1f1f1;
+}
+form{
+    display: block;
+    padding: 2px;
+}
+fieldset{
+    height: 90%;
+    border: none;
+}
+form input{
+    border: none;
+    color: #6495ed;
+}
+button{
+    width: 20%;
+    border: 1px solid #6495ed;
+    padding: 10px;
+    border-radius: 4px;
+    color: #6495ed;
+    font-size: 120%;
+}

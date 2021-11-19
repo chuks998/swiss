@@ -1,0 +1,245 @@
+body{
+    background: #f1f1f1;
+}
+.main{
+    height: calc(100vh - 100px);
+    margin-top: 100px;
+}
+.dash-client-info{
+    display: flex;
+    height: 50px;
+    background: #6495ed;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.dash-client-info .name-info{
+    display: flex;
+    flex: 0 0 40%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.name-info .name-box strong{
+    font-size: 300%;
+    color: #f1f1f1;
+}
+.name-info .name-box p{
+    font-size: 200%;
+    display: inline;
+    color: #f1f1f1;
+}
+.acct-id{
+    font-size: 200%;
+    font-weight: 400;
+    color: #f1f1f1;
+    text-transform: uppercase;
+    text-shadow: 1px 1px #4d310e80;
+}
+.acct-type, .acct-bal{
+    font-size: 150%;
+    color: #f1f1f1;
+}
+.name-info img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+.detail{
+    width: 70%;
+    height: calc(100vh - 160px);
+    box-shadow: 1px 1px 7px 1px #cccccc80;
+    margin: auto;
+    background: #f5f5f5;
+    overflow-y: auto;
+}
+.dash-alert{
+    background: #c3c300;
+    height: 50px;
+    width: 100%;
+    margin-top: 1px;
+    display: flex;
+    font-size: 150%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #f1f1f1;
+}
+.action{
+    margin-top: 5px;
+    height: 50px;
+    width: 100%;
+    /* background: #6495ed; */
+}
+.action ul{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+.action a{
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 120%;
+    color: #6495ed;
+}
+.documents{
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+    display: flex;
+}
+.proof{
+    border: 1px solid #cccccc80;
+    border-top: 3px solid #6495ed;
+    border-radius: 4px;
+    flex: 0 0 33.3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.documents img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+.history{
+    border: 1px solid #cccccc80;
+    height: 200px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+.history-detail{
+    border-left: 2px solid #6495ed;
+    border-bottom: 2px solid #cccccc80;
+    margin: 5px;
+    height: 100px;
+    padding: 2px;
+    color: #af0000;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.history-name{
+    font-size: 150%;
+}
+.history-frac{
+    color: #af0000;
+}
+
+.form{
+    min-height: calc(100vh - 100px);
+    margin-top: 100px;
+    padding-top: 5px;
+}
+
+form{
+    box-shadow: 1px 1px 7px 1px #cccccc80;
+    height: 350px;
+    width: 60%;
+    margin: 0 auto;
+    display: none;
+}
+form ul{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+form input{
+    width: 65%;
+    height: 30px;
+    border: none;
+    box-shadow: 1px 1px 7px 1px #cccccc80;
+    margin-left: 5px;
+    padding: 2px;
+    font-size: 120%;
+}
+form .submit{
+    width: 20%;
+    margin-left: 0;
+    border-radius: 4px;
+    background: #6495ed;
+    color: #f1f1f1;
+}
+form legend{
+    font-size: 200%;
+    color: #6495ed;
+    padding: 5px;
+}
+
+
+@media only screen and (max-width:1024px){
+    .dash-client-info{
+        height: 100px;
+    }
+}
+
+/* large mobile design */
+@media only screen and (max-width:540px){
+    form{
+        width: 90%;
+    }
+    
+    .dash-client-info .name-info{
+        flex: 0 0 60%;
+    }
+    .name-info .name-box strong{
+        font-size: 200%;
+    }
+    .name-info .name-box p{
+        font-size: 150%;
+    }
+    .acct-id{
+        font-size: 150%;
+        font-weight: 400;
+    }
+    .detail{
+        width: 90%;
+    }
+
+}
+
+
+/* mid mobile design */
+@media only screen and (max-width:414px){
+    form{
+        width: 100%;
+        margin: 0;
+    }
+    .history{
+        border: none;
+        height: 200px;
+        margin-top: 110px;
+    }
+    .detail{
+        width: 100vw;
+    }
+    .documents{
+        width: 100%;
+        height: 200px;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .documents img{
+        width: 70px;
+        height: 70px;
+        border-radius: 70px;
+    }
+    .acct-id{
+        font-size: 150%;
+        text-shadow: none;
+    }
+    .acct-type, .acct-bal{
+        font-size: 120%;
+    }
+    .name-info .name-box strong{
+        font-size: 150%;
+    }
+}

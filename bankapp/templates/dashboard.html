@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/dash.css">
+    
+    <title>{{user.accountdetail.account_number}} account detail</title>
+</head>
+<body>
+    <div class="nav-cont">
+        <span class="logo-text"><h1>SwissOffShore <br><small>banking since 1920</small></h1></span>
+        
+        <nav>
+            <ul>
+                <li><a href="#">alerts</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">contact us</a></li>
+            </ul>
+        </nav>
+        <span class="auth">
+            <ul>
+                <li><a href="#">home</a></li>
+                <li><a href="{% url 'logout' %}">logout</a></li>
+            </ul>
+        </span>
+    </div>
+    <section class="main">
+        <div class="dash-client-info">
+            <span class="name-info">
+                <div class="name-box">
+                    <strong>{{user.first_name}},</strong> <p>{{user.last_name}}</p>
+                </div>
+                <div class="acct-id">account id {{user.accountdetail.account_number}}</div>
+            </span>
+            <span class="acct-info">
+                <div class="acct-type">investment account</div>
+                <div class="acct-bal">&dollar; {{user.accountdetail.account_balance}}</div>
+            </span>
+        </div>
+        <div class="detail">
+            <div class="dash-alert">all account should be verified before withdrawal.
+                 <br> this message will disapper automatically.
+            </div>
+            <div class="action">
+                <ul>
+                    <li><a href="#form" id="deposit">deposite</a></li>
+                    <li><a href="#form" id="transfer">transfer</a></li>
+                </ul>
+            </div>
+
+            <div class="documents">
+                <div class="proof">
+                    <div class="proof-title">proof of identity</div>
+                    <div class="proof-message"><a style="color: #6495ed;" href="{% url 'poi' %}">upload a clear photo of your id</a></div>
+                    <img src="{{user.verify.proof_of_identity.url}}" alt="none add">
+                </div>
+
+                <div class="proof">
+                    <div class="proof-title">proof of residence</div>
+                    <div class="proof-message"><a style="color: #6495ed;" href="{% url 'por' %}">upload a clear photo of your water bill, light bill etc</a></div>
+                    <img src="{{user.verify.proof_of_residence.url}}" alt="none add">
+                </div>
+
+                <div class="proof">
+                    <div class="proof-title">proof of account</div>
+                    <div class="proof-message"><a style="color: #6495ed;" href="{% url 'poa' %}">upload a clear photo of your recent bank statement</a></div>
+                    <img src="{{user.verify.proof_of_account.url}}" alt="none add">
+                </div>
+            </div>
+
+            <div class="history">
+                {% if debit %}
+                    <div class="history-detail">
+                        successfully transfered
+                        <div class="history-frac">{{amount}}</div>
+                        <div class="history-name">to {{reciver}}</div>
+                    </div>
+                {% endif %}
+
+                <!--  -->
+            </div>
+        </div>
+
+    </section>
+
+    <section class="form" id="form">
+        <form action="{% url 'transfer' %}" method="post" id="transfer-form">
+            {% csrf_token %}
+            <legend>transfer fund</legend>
+            <ul>
+                <li>
+                    <input type="text" name="username" placeholder="your username">
+                </li>
+                <li>
+                    <input type="text" name="acct-num" placeholder="reciver account number">
+                </li>
+                <li>
+                    <input type="text" name="bank_name" placeholder="bank name">
+                </li>
+                <li>
+                    <input type="number" name="amount" placeholder="amount">
+                </li>
+                <li>
+                    <input type="text" name="desc" placeholder="description">
+                </li>
+            </ul>
+            <input type="submit" value="proceed" class="submit">
+        </form>
+
+        <form action="#" method="post" id="deposit-form">
+            {% csrf_token %} 
+            <legend>deposite fund</legend>
+            <ul>
+                <li>
+                    <input type="text" name="card_number" placeholder="card number" onerror="true">
+                </li>
+                <li>
+                    <input type="text" name="card_name" placeholder="card name">
+                </li>
+                <li>
+                    <input type="month" name="card_month" placeholder="yyyy/mm">
+                </li>
+                <li>
+                    <input type="ccv" name="cvv" placeholder="CVV">
+                </li>
+            </ul>
+            <input type="submit" value="proceed" class="submit">
+        </form>
+    </section>
+    
+
+    <script src="/static/javascript/jquary.js"></script>
+    <script src="/static/javascript/fade.js"></script>
+    <script src="/static/javascript/scroll.js"></script>
+</body>
+</html>
